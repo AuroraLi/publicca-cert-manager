@@ -1,0 +1,19 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: example-com
+  namespace: demo
+spec:
+  secretName: example-com-tls
+  issuerRef:
+    # The issuer created previously
+    name: gcppublic
+    kind: ClusterIssuer
+  dnsNames:
+  - cert-demo.example.com
+  secretTemplate:
+    annotations:
+      cert-manager-sync.lestak.sh/sync-enabled: "true"
+      cert-manager-sync.lestak.sh/GCP-enabled: "true"
+      cert-manager-sync.lestak.sh/GCP-project: PROJECT_ID
+      cert-manager-sync.lestak.sh/GCP-location: LOCATION
