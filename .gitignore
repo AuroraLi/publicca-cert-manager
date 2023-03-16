@@ -1,0 +1,5 @@
+**/.terraform/**
+**/.terraform.lock.hcl
+**/backend.tf
+**/*.yaml
+**/*.tfvars
